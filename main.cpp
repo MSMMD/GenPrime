@@ -15,11 +15,7 @@ int main(){
     Fermat_Primality_Test(A, P);
     Miller_Primality_Test(A, P);
 
-    unsigned int Number_of_digits=10;
-    cout<<"Choose the Number of Digits: "; cin>>Number_of_digits;
-    mt19937_64 gen(0);
-    uniform_int_distribution<uint64_t> dist(Pow_Mod(10, Number_of_digits-1, UINT64_MAX), Pow_Mod(10, Number_of_digits, UINT64_MAX)-1);
-    cout<<"Random number P: "<<dist(gen)<<endl;
+    
 
 
     return 0;

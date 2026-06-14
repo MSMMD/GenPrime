@@ -36,15 +36,16 @@ Info Pow_Mod_Miller(uint64_t a, uint64_t x, uint64_t p){
         r = i.remainder;
 
         ret.remainder = (r*r)%p;
+        ret.FAILS = ((ret.remainder == 1) && (r != 1) && (r != p-1)) || i.FAILS;
     } else {
         i = Pow_Mod_Miller(a, (x-1)/2, p);
         r = i.remainder;
 
         ret.remainder = (r*r)%p;
         ret.remainder = (a*ret.remainder)%p;
+        ret.FAILS = 0;
     }
-    
-    ret.FAILS = ((ret.remainder == 1) && (r != 1) && (r != p-1)) || i.FAILS;
+
     return ret;
 }
 
