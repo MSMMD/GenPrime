@@ -1,5 +1,4 @@
 #include "Tests.hpp"
-#include <iostream>
 
 uint64_t Pow_Mod(uint64_t a, uint64_t x, uint64_t p){
     if(!x) return 1;
@@ -17,12 +16,7 @@ uint64_t Pow_Mod(uint64_t a, uint64_t x, uint64_t p){
 bool Fermat_Primality_Test(uint64_t a, uint64_t p){
     uint64_t R = Pow_Mod(a, p-1, p);
 
-    if(R==1){
-        std::cout<<"It's a Fermat's Prime\n";
-        return 1;
-    }
-    
-    std::cout<<"It's NOT a Fermat's Prime. Remainder = "<<R<<std::endl;
+    if(R==1)return 1;
     return 0;
 }
 
@@ -52,11 +46,6 @@ Info Pow_Mod_Miller(uint64_t a, uint64_t x, uint64_t p){
 bool Miller_Primality_Test(uint64_t a, uint64_t p){
     Info I = Pow_Mod_Miller(a, p-1, p);
 
-    if(I.remainder==1 && !I.FAILS){
-        std::cout<<"It's a Miller's Prime\n";
-        return 1;
-    }
-    
-    std::cout<<"It's NOT a Miller's Prime. Remainder = "<<I.remainder<<std::endl;
+    if(I.remainder==1 && !I.FAILS) return 1;
     return 0;
 }
