@@ -13,7 +13,7 @@ int main(){
     unsigned int Number_of_digits;
     cout<<"Choose the Number of Digits: "; cin>>Number_of_digits;
     mt19937_64 gen(0);
-    uniform_int_distribution<uint64_t> dist_prime(Pow_Mod(10, Number_of_digits-1, UINT64_MAX), Pow_Mod(10, Number_of_digits, UINT64_MAX)-1);
+    uniform_int_distribution<uint64_t> dist_prime(Pow_Mod<uint64_t>(10, Number_of_digits-1, UINT64_MAX), Pow_Mod<uint64_t>(10, Number_of_digits, UINT64_MAX)-1);
     
     P = dist_prime(gen);
     uniform_int_distribution<uint64_t> dist_base(1, P-1);
