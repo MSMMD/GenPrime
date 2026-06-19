@@ -4,9 +4,18 @@
 using namespace std;
 
 #include "Tests.hpp"
+#include "number.hpp"
 
 int main(){
     cout<<"-------------------------------------\nBig primes generator with uncertainty\n-------------------------------------\n";
+
+    number X(3), Y(2);
+    X.I[0] = 123456789;
+    X.I[1] = 321321321;
+    X.I[2] = 1000000;
+    Y.I[0] = 876543211;
+    Y.I[1] = 111111111;
+    cout<<X<<endl<<Y<<endl<<X+Y<<endl<<X+876543211<<endl;
     
     uint64_t P, A; //UINT64_MAX: (2^64 -1) 18446744073709551615 | 19 casas que podem valer de 0-9
 
@@ -56,7 +65,7 @@ int main(){
     }
 
     long double certainty = pow(1.0/4.0, target); certainty = 1 - certainty;
-    cout.precision(30);
+    cout<<setprecision(34);
     cout<<fixed;
 
 
